@@ -388,7 +388,3 @@ chmod +x verify-gh.sh
 - Para `gh`, a instalação usa o release oficial do projeto `cli/cli`, sem depender do pacote da distro.
 - Se você alterar versões no manifesto, basta reexecutar `./setup.sh`.
 - O bootstrap pode demorar bastante na primeira execução por compilar/baixar múltiplos SDKs.
-
-## POC de Automação
-
-Ver `poc-automation/`.
