@@ -2,8 +2,8 @@ param()
 
 $ErrorActionPreference = "Stop"
 
-$workspaceRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$bridgeDir = Join-Path $workspaceRoot "windows-bridge"
+$repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+$bridgeDir = Join-Path $repoRoot "windows-bridge"
 $userBin = Join-Path $HOME ".local\bin"
 $wrunCmd = Join-Path $bridgeDir "wrun.cmd"
 $gitBashRc = Join-Path $HOME ".bashrc"

@@ -91,7 +91,7 @@ O script instala:
 - Dependências base do sistema para compilar e executar SDKs
 - ASDF Version Manager
 - Plugins ASDF para `python`, `nodejs`, `java` e `dotnet`
-- Ferramentas declaradas em `.workspace-config/.tool-versions`
+- Ferramentas declaradas em `.tool-versions`
 - `RTK` via instalador oficial do projeto `rtk-ai/rtk`
 - `GitHub CLI` via release oficial do projeto `cli/cli`
 - Utilitários de apoio: `jq`, `ripgrep`, `fd-find`, `shellcheck`, `shfmt`, `pipx`
@@ -127,7 +127,7 @@ Essa configuração faz o terminal integrado e o perfil de automação abrirem e
 
 Para reutilizar no Windows as ferramentas instaladas apenas no WSL, sem instalar `python`, `node`, `dotnet`, `docker`, `gh` ou `rtk` no Windows, use os arquivos em:
 
-- `.workspace-config/windows-bridge/`
+- `windows-bridge/`
 
 Arquivos principais:
 
@@ -151,7 +151,7 @@ O bridge sempre:
 Para abrir um terminal novo no Windows e já usar `python`, `node`, `dotnet`, `docker`, `gh` e `rtk` apontando para o WSL, execute uma vez:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\.workspace-config\windows-bridge\install-global.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows-bridge\install-global.ps1
 ```
 
 Esse instalador:
@@ -223,25 +223,25 @@ Se preferir não injetar aliases/funções no shell, use `wrun` diretamente:
 PowerShell:
 
 ```powershell
-.\.workspace-config\windows-bridge\wrun.cmd python --version
-.\.workspace-config\windows-bridge\wrun.cmd dotnet --version
-.\.workspace-config\windows-bridge\wrun.cmd gh --version
+.\windows-bridge\wrun.cmd python --version
+.\windows-bridge\wrun.cmd dotnet --version
+.\windows-bridge\wrun.cmd gh --version
 ```
 
 CMD:
 
 ```bat
-.\.workspace-config\windows-bridge\wrun.cmd python --version
-.\.workspace-config\windows-bridge\wrun.cmd docker ps
-.\.workspace-config\windows-bridge\wrun.cmd gh --version
+.\windows-bridge\wrun.cmd python --version
+.\windows-bridge\wrun.cmd docker ps
+.\windows-bridge\wrun.cmd gh --version
 ```
 
 Git Bash:
 
 ```bash
-./.workspace-config/windows-bridge/wrun.sh python --version
-./.workspace-config/windows-bridge/wrun.sh gh --version
-./.workspace-config/windows-bridge/wrun.sh rtk gain
+./windows-bridge/wrun.sh python --version
+./windows-bridge/wrun.sh gh --version
+./windows-bridge/wrun.sh rtk gain
 ```
 
 ## RTK no WSL
@@ -279,13 +279,13 @@ gh auth status
 
 Os scripts principais para replicação são:
 
-- `.workspace-config/bootstrap-machine.ps1`
+- `bootstrap-machine.ps1`
   - instalador principal do host Windows;
   - instala/configura `WSL2`, valida a distro e aplica o `windows-bridge`.
-- `.workspace-config/wsl-setup/bootstrap-workspace.sh`
+- `wsl-setup/bootstrap-workspace.sh`
   - instalador principal dentro do WSL;
   - executa `setup.sh` e os scripts de validação.
-- `.workspace-config/windows-bridge/install-global.ps1`
+- `windows-bridge/install-global.ps1`
   - instala os wrappers globais do Windows.
 
 Validações aplicadas pelo script:

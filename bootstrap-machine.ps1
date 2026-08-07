@@ -25,11 +25,10 @@ function Get-InstalledDistros {
     return @($distros | ForEach-Object { $_.Trim() } | Where-Object { $_ })
 }
 
-$workspaceConfigDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$workspaceRoot = Split-Path -Parent $workspaceConfigDir
-$workspaceWslPath = Convert-WindowsPathToWsl -WindowsPath $workspaceRoot
-$bootstrapWslScript = "$workspaceWslPath/.workspace-config/wsl-setup/bootstrap-workspace.sh"
-$installBridgeScript = Join-Path $workspaceConfigDir "windows-bridge\install-global.ps1"
+$repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+$repoWslPath = Convert-WindowsPathToWsl -WindowsPath $repoRoot
+$bootstrapWslScript = "$repoWslPath/wsl-setup/bootstrap-workspace.sh"
+$installBridgeScript = Join-Path $repoRoot "windows-bridge\install-global.ps1"
 
 if (-not (Get-Command wsl.exe -ErrorAction SilentlyContinue)) {
     throw "WSL nao esta disponivel neste Windows. Atualize o sistema antes de continuar."
@@ -65,13 +64,13 @@ if ($probe -notcontains "WSL_READY") {
 }
 
 if ($ValidateOnly) {
-    Write-Host "Validacao concluida: WSL, distro '$Distro', caminho do workspace e instalador do bridge estao acessiveis."
-    Write-Host "Workspace WSL path: $workspaceWslPath"
+    Write-Host "Validacao concluida: WSL, distro '$Distro', caminho do repositorio e instalador do bridge estao acessiveis."
+    Write-Host "Repo WSL path: $repoWslPath"
     exit 0
 }
 
 Write-Host "Provisionando ambiente dentro do WSL..."
-& wsl.exe -d $Distro --cd $workspaceWslPath -- bash $bootstrapWslScript
+& wsl.exe -d $Distro --cd $repoWslPath -- bash $bootstrapWslScript
 
 Write-Host "Aplicando windows-bridge global..."
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installBridgeScript
