@@ -98,4 +98,4 @@ Em terminais novos do Windows, os seguintes comandos passam a usar o WSL como ba
 
 Para detalhes técnicos, troubleshooting e fluxo manual completo, use:
 
-- [WORKSPACE-README.md](WORKSPACE-README.md)
+- [README.md](README.md)

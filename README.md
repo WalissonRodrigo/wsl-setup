@@ -21,7 +21,7 @@ wsl-setup/
 ├── trae-wsl.settings.json  # Template de settings para terminal WSL no Trae
 ├── bootstrap-machine.cmd   # Atalho de duplo clique para o bootstrap do host Windows
 ├── bootstrap-machine.ps1   # Instalador principal do host Windows
-└── WORKSPACE-README.md     # Este arquivo
+└── README.md              # Este arquivo
 ```
 
 ## Instalação Rápida
