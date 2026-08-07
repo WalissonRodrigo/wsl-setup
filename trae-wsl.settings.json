@@ -1,0 +1,23 @@
+{
+  "terminal.integrated.defaultProfile.windows": "WSL (Ubuntu)",
+  "terminal.integrated.profiles.windows": {
+    "WSL (Ubuntu)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "<distro>",
+        "--cd",
+        "/mnt/<drive>/<repo-path>"
+      ]
+    }
+  },
+  "terminal.integrated.automationProfile.windows": {
+    "path": "C:\\Windows\\System32\\wsl.exe",
+    "args": [
+      "-d",
+      "<distro>",
+      "--cd",
+      "/mnt/<drive>/<repo-path>"
+    ]
+  }
+}
