@@ -1,0 +1,5 @@
+@echo off
+setlocal
+:: Bridge direto para WSL garantindo streaming de stdio (necessário para ACP)
+wsl --exec bash -i -c "gemini %*"
+exit /b %errorlevel%

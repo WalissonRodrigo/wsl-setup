@@ -1,0 +1,9 @@
+@echo off
+setlocal
+:: Wrapper para OpenCode que decide entre modo ACP ou comandos normais
+if "%~1"=="" (
+    call opencode acp
+) else (
+    call opencode %*
+)
+exit /b %errorlevel%

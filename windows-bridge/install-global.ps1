@@ -27,7 +27,10 @@ $tools = @(
     "docker",
     "docker-compose",
     "gh",
-    "rtk"
+    "rtk",
+    "gemini",
+    "tokenrouter",
+    "opencode"
 )
 
 function Ensure-Directory {
@@ -61,23 +64,27 @@ function Write-Wrapper {
     )
 
     $wrapperPath = Join-Path $userBin ("{0}.cmd" -f $ToolName)
-    $wrapperContent = if ($ToolName -eq "wrun") {
-@"
+    $sourcePath = Join-Path $bridgeDir ("{0}.cmd.source" -f $ToolName)
+
+    if (Test-Path -LiteralPath $sourcePath) {
+        Copy-Item -Path $sourcePath -Destination $wrapperPath -Force
+    } elseif ($ToolName -eq "wrun") {
+        $wrapperContent = @"
 @echo off
 setlocal
 call "$TargetWrun" %*
 exit /b %errorlevel%
 "@
+        Set-Content -Path $wrapperPath -Value $wrapperContent -Encoding ASCII
     } else {
-@"
+        $wrapperContent = @"
 @echo off
 setlocal
 call "$TargetWrun" $ToolName %*
 exit /b %errorlevel%
 "@
+        Set-Content -Path $wrapperPath -Value $wrapperContent -Encoding ASCII
     }
-
-    Set-Content -Path $wrapperPath -Value $wrapperContent -Encoding ASCII
 }
 
 function Ensure-BashrcHook {

@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "agents": [
+    {
+      "id": "tokenrouter",
+      "name": "TokenRouter",
+      "version": "1.18.23",
+      "description": "TokenRouter gateway via OpenCode",
+      "authors": [
+        "Walisson"
+      ],
+      "license": "proprietary",
+      "distribution": {
+        "binary": {
+          "windows-x86_64": {
+            "archive": "",
+            "cmd": "tokenrouter.cmd",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini CLI (Local)",
+      "version": "0.57.0",
+      "description": "Gemini CLI via WSL bridge",
+      "authors": [
+        "Walisson"
+      ],
+      "license": "proprietary",
+      "distribution": {
+        "binary": {
+          "windows-x86_64": {
+            "archive": "",
+            "cmd": "gemini.cmd",
+            "args": [
+              "--acp"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

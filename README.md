@@ -179,6 +179,9 @@ Depois da instalação global, estes comandos passam a funcionar em terminais no
 - `docker-compose`
 - `gh`
 - `rtk`
+- `gemini` (Gemini CLI via WSL)
+- `tokenrouter` (Proxy para Qwen/Nemotron via OpenCode)
+- `opencode` (Binário do OpenCode)
 
 ### Uso Rápido
 
@@ -243,6 +246,26 @@ Git Bash:
 ./windows-bridge/wrun.sh gh --version
 ./windows-bridge/wrun.sh rtk gain
 ```
+
+## Agentes de IA (ACP)
+
+Este repositório inclui suporte para agentes de IA externos via **Agent Client Protocol (ACP)**, integrados ao Devin Desktop ou Windsurf.
+
+### Configurações Disponíveis
+
+Os arquivos em `acp-agents/` servem como base para habilitar provedores externos:
+
+- `devin-registry.json`: Registro local para adicionar ao Devin Desktop (`Ctrl+Shift+P` -> `Open Local ACP Registry Config`).
+- `opencode-tokenrouter.json`: Configuração do provedor para o TokenRouter.
+
+### Instalação e Uso
+
+1.  No WSL, instale o Gemini CLI: `npm install -g @google/gemini-cli`.
+2.  No Windows, instale o `opencode.exe` em `%USERPROFILE%\.local\bin\`.
+3.  Execute `install-global.ps1` para criar os wrappers `gemini`, `tokenrouter` e `opencode`.
+4.  Configure suas chaves de API nas variáveis de ambiente do Windows ou no `settings.json` do Devin.
+
+---
 
 ## RTK no WSL
 
