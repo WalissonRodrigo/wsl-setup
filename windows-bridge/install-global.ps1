@@ -30,6 +30,7 @@ $tools = @(
     "rtk",
     "gemini",
     "tokenrouter",
+    "orcarouter",
     "opencode"
 )
 

@@ -42,6 +42,27 @@
           }
         }
       }
+    },
+    {
+      "id": "orcarouter",
+      "name": "OrcaRouter",
+      "version": "1.18.23",
+      "description": "OrcaRouter gateway via OpenCode",
+      "authors": [
+        "Walisson"
+      ],
+      "license": "proprietary",
+      "distribution": {
+        "binary": {
+          "windows-x86_64": {
+            "archive": "",
+            "cmd": "orcarouter.cmd",
+            "args": [
+              "acp"
+            ]
+          }
+        }
+      }
     }
   ]
 }
